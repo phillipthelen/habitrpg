@@ -145,8 +145,12 @@ let _formatDataForAmplitude = (data) => {
   let event_properties = omit(data, AMPLITUDE_PROPERTIES_TO_SCRUB);
   let platform = _formatPlatformForAmplitude(data.headers && data.headers['x-client']);
   let agent = _formatUserAgentForAmplitude(platform, data.headers && data.headers['user-agent']);
+  let user_id = data.uuid || user_id == undefined;
+  if data.anonymize {
+    user_id = nil;
+  }
   let ampData = {
-    user_id: data.uuid || 'no-user-id-was-provided',
+    user_id: user_id,
     platform,
     os_name: agent.name,
     os_version: agent.version,

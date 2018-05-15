@@ -41,6 +41,7 @@ module.exports = function releasePets (user, req = {}, analytics) {
   if (analytics) {
     analytics.track('release pets', {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       acquireMethod: 'Gems',
       gemCost: 4,
       category: 'behavior',

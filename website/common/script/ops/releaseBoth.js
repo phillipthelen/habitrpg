@@ -27,6 +27,7 @@ module.exports = function releaseBoth (user, req = {}) {
   //   if (analytics) {
   //     analytics.track('release pets & mounts', {
   //       uuid: user._id,
+  //       anonymize: !user.flags.consent.analytics,
   //       acquireMethod: 'Gems',
   //       gemCost: 6,
   //       category: 'behavior',

@@ -107,6 +107,7 @@ module.exports = function revive (user, req = {}, analytics) {
   if (analytics) {
     analytics.track('Death', {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       lostItem,
       gaLabel: lostItem,
       category: 'behavior',

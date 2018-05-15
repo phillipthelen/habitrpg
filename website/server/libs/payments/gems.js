@@ -79,6 +79,7 @@ async function buyGems (data) {
 
   analytics.trackPurchase({
     uuid: data.user._id,
+    anonymize: !user.flags.consent.analytics,
     itemPurchased: 'Gems',
     sku: `${data.paymentMethod.toLowerCase()}-checkout`,
     purchaseType: 'checkout',

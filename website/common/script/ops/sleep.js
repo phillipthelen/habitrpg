@@ -4,6 +4,7 @@ module.exports = function sleep (user, req = {}, analytics) {
   if (analytics) {
     analytics.track('sleep', {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       status: user.preferences.sleep,
       category: 'behavior',
       headers: req.headers,

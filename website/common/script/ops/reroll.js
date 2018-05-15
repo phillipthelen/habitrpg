@@ -23,6 +23,7 @@ module.exports = function reroll (user, tasks = [], req = {}, analytics) {
   if (analytics) {
     analytics.track('Fortify Potion', {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       acquireMethod: 'Gems',
       gemCost: 4,
       category: 'behavior',

@@ -83,6 +83,7 @@ export class AbstractBuyOperation {
     let analyticsData = _merge(additionalData, {
       // ...additionalData,
       uuid: this.user._id,
+      anonymize: !user.flags.consent.analytics,
       category: 'behavior',
       headers: this.req.headers,
     });

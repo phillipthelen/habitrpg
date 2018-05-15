@@ -173,6 +173,7 @@ api.createUserTasks = {
       if (moment().diff(user.auth.timestamps.created, 'days') < 7) {
         res.analytics.track('task create', {
           uuid: user._id,
+          anonymize: !user.flags.consent.analytics,
           hitType: 'event',
           category: 'behavior',
           taskType: task.type,
@@ -260,6 +261,7 @@ api.createChallengeTasks = {
     tasks.forEach((task) => {
       res.analytics.track('task create', {
         uuid: user._id,
+        anonymize: !user.flags.consent.analytics,
         hitType: 'event',
         category: 'behavior',
         taskType: task.type,
@@ -695,6 +697,7 @@ api.scoreTask = {
     if (moment().diff(user.auth.timestamps.created, 'days') < 7) {
       res.analytics.track('task score', {
         uuid: user._id,
+        anonymize: !user.flags.consent.analytics,
         hitType: 'event',
         category: 'behavior',
         taskType: task.type,

@@ -41,6 +41,7 @@ module.exports = function releaseMounts (user, req = {}, analytics) {
   if (analytics) {
     analytics.track('release mounts', {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       acquireMethod: 'Gems',
       gemCost: 4,
       category: 'behavior',

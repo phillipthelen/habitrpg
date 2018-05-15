@@ -63,6 +63,7 @@ api.createGroupTasks = {
     tasks.forEach((task) => {
       res.analytics.track('task create', {
         uuid: user._id,
+        anonymize: !user.flags.consent.analytics,
         hitType: 'event',
         category: 'behavior',
         taskType: task.type,

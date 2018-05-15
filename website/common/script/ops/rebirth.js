@@ -18,6 +18,7 @@ module.exports = function rebirth (user, tasks = [], req = {}, analytics) {
 
   let analyticsData = {
     uuid: user._id,
+    anonymize: !user.flags.consent.analytics,
     category: 'behavior',
   };
 

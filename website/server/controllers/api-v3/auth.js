@@ -197,6 +197,7 @@ api.registerLocal = {
         type: 'local',
         gaLabel: 'local',
         uuid: savedUser._id,
+        anonymize: !savedUser.flags.consent.analytics,
         headers: req.headers,
         user: savedUser,
       });
@@ -279,6 +280,7 @@ api.loginLocal = {
       type: 'local',
       gaLabel: 'local',
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       headers: req.headers,
     });
 
@@ -364,6 +366,7 @@ api.loginSocial = {
           type: network,
           gaLabel: network,
           uuid: savedUser._id,
+          anonymize: !savedUser.flags.consent.analytics,
           headers: req.headers,
           user: savedUser,
         });

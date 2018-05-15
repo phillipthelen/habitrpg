@@ -206,6 +206,7 @@ api.createChallenge = {
 
     res.analytics.track('challenge create', {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       hitType: 'event',
       category: 'behavior',
       challengeID: response._id,
@@ -267,6 +268,7 @@ api.joinChallenge = {
 
     res.analytics.track('challenge join', {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       hitType: 'event',
       category: 'behavior',
       challengeID: challenge._id,
@@ -316,6 +318,7 @@ api.leaveChallenge = {
 
     res.analytics.track('challenge leave', {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       hitType: 'event',
       category: 'behavior',
       challengeID: challenge._id,
@@ -728,6 +731,7 @@ api.deleteChallenge = {
 
     res.analytics.track('challenge delete', {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       hitType: 'event',
       category: 'behavior',
       challengeID: challenge._id,
@@ -779,6 +783,7 @@ api.selectChallengeWinner = {
 
     res.analytics.track('challenge close', {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       hitType: 'event',
       category: 'behavior',
       challengeID: challenge._id,

@@ -148,6 +148,7 @@ async function createSubscription (data) {
 
   analytics.trackPurchase({
     uuid: data.user._id,
+    anonymize: !user.flags.consent.analytics,
     groupId,
     itemPurchased,
     sku: `${data.paymentMethod.toLowerCase()}-subscription`,
@@ -308,6 +309,7 @@ async function cancelSubscription (data) {
 
   analytics.track(cancelType, {
     uuid: data.user._id,
+    anonymize: !user.flags.consent.analytics,
     groupId,
     gaCategory: 'commerce',
     gaLabel: data.paymentMethod,

@@ -31,6 +31,7 @@ module.exports = function openMysteryItem (user, req = {}, analytics) {
   if (analytics) {
     analytics.track('open mystery item', {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       itemKey: item,
       itemType: 'Subscriber Gear',
       acquireMethod: 'Subscriber',

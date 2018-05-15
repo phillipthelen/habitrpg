@@ -114,6 +114,7 @@ module.exports = function randomDrop (user, options, req = {}, analytics) {
     if (analytics) {
       analytics.track('dropped item', {
         uuid: user._id,
+        anonymize: !user.flags.consent.analytics,
         itemKey: drop.key,
         acquireMethod: 'Drop',
         category: 'behavior',

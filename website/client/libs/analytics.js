@@ -42,7 +42,9 @@ function _gatherUserStats (properties) {
   const user = store.state.user.data;
   const tasks = store.state.tasks.data;
 
-  properties.UUID = user._id;
+  if (user.flags.consent.analytics) {
+    properties.UUID = user._id;
+  }
 
   properties.Class = user.stats.class;
   properties.Experience = Math.floor(user.stats.exp);
@@ -70,8 +72,10 @@ function _gatherUserStats (properties) {
 export function setUser () {
   const store = getStore();
   const user = store.state.user.data;
-  window.amplitude.setUserId(user._id);
-  window.ga('set', {userId: user._id});
+  if (user.flags.consent.analytics) {
+    window.amplitude.setUserId(user._id);
+    window.ga('set', {userId: user._id});
+  }
 }
 
 export function track (properties) {

@@ -154,6 +154,7 @@ api.createGroup = {
 
     let analyticsObject = {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       hitType: 'event',
       category: 'behavior',
       owner: true,
@@ -205,6 +206,7 @@ api.createGroupPlan = {
     // Analytics
     let analyticsObject = {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       hitType: 'event',
       category: 'behavior',
       owner: true,
@@ -645,6 +647,7 @@ api.joinGroup = {
 
     let analyticsObject = {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       hitType: 'event',
       category: 'behavior',
       owner: false,

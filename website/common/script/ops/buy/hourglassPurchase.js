@@ -45,6 +45,7 @@ module.exports = function purchaseHourglass (user, req = {}, analytics) {
   if (analytics) {
     analytics.track('acquire item', {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       itemKey: key,
       itemType: type,
       acquireMethod: 'Hourglass',

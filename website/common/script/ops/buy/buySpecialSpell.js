@@ -29,6 +29,7 @@ module.exports = function buySpecialSpell (user, req = {}, analytics) {
   if (analytics) {
     analytics.track('acquire item', {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       itemKey: item.key,
       itemType: 'Market',
       goldCost: item.goldValue,

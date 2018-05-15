@@ -91,6 +91,7 @@ module.exports = function updateStats (user, stats, req = {}, analytics) {
       if (analytics) {
         analytics.track('acquire item', {
           uuid: user._id,
+          anonymize: !user.flags.consent.analytics,
           itemKey: k,
           acquireMethod: 'Level Drop',
           category: 'behavior',

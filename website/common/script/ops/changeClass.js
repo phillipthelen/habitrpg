@@ -54,6 +54,7 @@ module.exports = function changeClass (user, req = {}, analytics) {
     if (analytics) {
       analytics.track('change class', {
         uuid: user._id,
+        anonymize: !user.flags.consent.analytics,
         class: klass,
         acquireMethod: 'Gems',
         gemCost: 3,

@@ -448,6 +448,7 @@ api.deleteUser = {
 
     res.analytics.track('account delete', {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       hitType: 'event',
       category: 'behavior',
     });
@@ -1762,6 +1763,7 @@ api.userReset = {
 
     res.analytics.track('account reset', {
       uuid: user._id,
+      anonymize: !user.flags.consent.analytics,
       hitType: 'event',
       category: 'behavior',
     });

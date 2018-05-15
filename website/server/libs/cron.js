@@ -199,6 +199,7 @@ function trackCronAnalytics (analytics, user, _progress, options) {
     gaLabel: 'Cron Count',
     gaValue: user.flags.cronCount,
     uuid: user._id,
+    anonymize: !user.flags.consent.analytics,
     user,
     resting: user.preferences.sleep,
     cronCount: user.flags.cronCount,

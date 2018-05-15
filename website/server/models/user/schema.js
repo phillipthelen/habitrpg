@@ -241,6 +241,9 @@ let schema = new Schema({
     armoireEmpty: {type: Boolean, default: false},
     cardReceived: {type: Boolean, default: false},
     warnedLowHealth: {type: Boolean, default: false},
+    consent: {
+      analytics: { type: Boolean, default: true}
+    }
   },
 
   history: {
